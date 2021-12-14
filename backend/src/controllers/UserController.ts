@@ -6,24 +6,26 @@ const users = [
   { name: "sam", email: "sanhellen@gmail.com" },
 ];
 
+const mailInfo = {
+  to: {
+    name: "Caio",
+    email: "caiororo@gmail.com",
+  },
+  message: {
+    subject: "registro concluido",
+    body: "Parabens...",
+  },
+};
+
 export default {
   async index(_req: Request, res: Response) {
     return res.json(users);
   },
 
-  async create(req: Request, res: Response) {
+  async create(_req: Request, res: Response) {
     const emailService = new EmailService();
 
-    emailService.sendMail({
-      to: {
-        name: "Caio",
-        email: "caiororo@gmail.com",
-      },
-      message: {
-        subject: "registro concluido",
-        body: "Parabens...",
-      },
-    });
-    res.send();
+    emailService.sendMail(mailInfo);
+    return res.json(mailInfo);
   },
 };

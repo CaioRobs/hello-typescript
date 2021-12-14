@@ -21,7 +21,6 @@ interface IEmailService {
 class EmailService implements IEmailService {
   sendMail({ to, message }: IMessageDTO) {
     console.log(`enviado para ${to.name}: ${message.subject}`);
-    console.log(to, message);
   }
 }
 

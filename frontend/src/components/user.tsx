@@ -15,7 +15,7 @@ export const User: React.FC<Props> = ({ user }) => {
       <strong>Nome: </strong>
       {user.name}
       <br />
-      <strong>Email:</strong>
+      <strong>Email: </strong>
       {user.email}
       <br />
       <br />

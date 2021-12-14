@@ -17,26 +17,27 @@ const users = [
     { name: "Caio", email: "caiorro@gmail.com" },
     { name: "sam", email: "sanhellen@gmail.com" },
 ];
+const mailInfo = {
+    to: {
+        name: "Caio",
+        email: "caiororo@gmail.com",
+    },
+    message: {
+        subject: "registro concluido",
+        body: "Parabens...",
+    },
+};
 exports.default = {
     index(_req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             return res.json(users);
         });
     },
-    create(req, res) {
+    create(_req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const emailService = new EmailService_1.default();
-            emailService.sendMail({
-                to: {
-                    name: "Caio",
-                    email: "caiororo@gmail.com",
-                },
-                message: {
-                    subject: "registro concluido",
-                    body: "Parabens...",
-                },
-            });
-            res.send();
+            emailService.sendMail(mailInfo);
+            return res.json([mailInfo]);
         });
     },
 };

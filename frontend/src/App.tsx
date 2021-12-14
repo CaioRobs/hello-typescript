@@ -16,6 +16,7 @@ function App() {
 
   return (
     <div className="App">
+      ta funfando
       {users.map((user) => (
         <User key={user.email} user={user} />
       ))}
